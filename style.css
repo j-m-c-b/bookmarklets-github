@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: white;
+}
+a:visited {
+    color: rgb(102, 205, 170);
+}
+a {
+    color: rgb(102, 205, 170);
+}
