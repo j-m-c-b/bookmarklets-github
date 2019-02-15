@@ -16,15 +16,15 @@ function hideAndShowPlayer(){
     if(document.getElementsByClassName(cssEleNames[0])[0].style.visibility === "hidden"){
 
         var cssEles = [];
-        for (let ele of cssEleNames){
-            let eleGet = document.getElementsByClassName(ele)[0];
+        for (var ele of cssEleNames){
+            var eleGet = document.getElementsByClassName(ele)[0];
             if(eleGet){
                 cssEles.push(eleGet);
             }
             
         }
 
-        for(let ele of cssEles){
+        for(var ele of cssEles){
            
             if(ele.style){
                 ele.style.visibility = "";
@@ -33,15 +33,15 @@ function hideAndShowPlayer(){
 
     }else{
         var cssEles = [];
-        for (let ele of cssEleNames){
-            let eleGet = document.getElementsByClassName(ele)[0];
+        for (var ele of cssEleNames){
+            var eleGet = document.getElementsByClassName(ele)[0];
             if(eleGet){
                 cssEles.push(eleGet);
             }
             
         }
 
-        for(let ele of cssEles){
+        for(var ele of cssEles){
            
             if( ele.style){
                 ele.style.visibility = "hidden";
