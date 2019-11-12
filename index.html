@@ -13,19 +13,23 @@
     <h3>List of bookmarklets</h3>
     <ul>
         <li>
-            <a href="booksmarklets/hideAndShowPlayer.js">Hide and Show Youtube Player</a>
+            <a href="javascript:(function(){function hideAndShowPlayer(){var t=['ytp-title-link yt-uix-sessionlink','ytp-title-channel-logo','ytp-watch-later-button ytp-button','ytp-button ytp-share-button','ytp-chrome-controls','ytp-play-progress ytp-swatch-background-color','ytp-pause-overlay ytp-scroll-min','ytp-progress-bar','ytp-chrome-bottom','ytp-chrome-top ytp-chrome-bottom'];if('hidden'===document.getElementsByClassName(t[0])[0].style.visibility){var e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='')}else{e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='hidden')}}hideAndShowPlayer();})()">
+                Hide and Show Youtube Player</a>
         </li>
         <li>
-            <a href="booksmarklets/increaseVolume.js">increase Volume</a>
+            <a href="javascript:(function(){function increaseVolume(){ var videoEle = document.getElementsByTagName('video')[0]; var audioCtx = new AudioContext(); var audioSource = audioCtx.createMediaElementSource(videoEle); var gainNode = audioCtx.createGain(); gainNode.gain.value = parseFloat(prompt('Audio Level', '2.5'));  audioSource.connect(gainNode); gainNode.connect(audioCtx.destination); } increaseVolume();})()">
+                increase Volume</a>
         </li>
         <li>
-            <a href="booksmarklets/startYouTubeVideoAtAGivenTime.js">Start YouTube Video At A Given Time</a>
+            <a href="javascript:(function(){function startYouTubeVideoAtAGivenTime(){ function get24Time(){ var d = new Date(); var curr_hour = d.getHours(); var curr_min = d.getMinutes(); var curr_sec = d.getSeconds(); return curr_hour+ ':'+ curr_min+':'+ curr_sec; } function getNearestMinute(timeString, delay){ delay = delay === undefined ? 0 : delay; timeString = get24Time().split(':'); timeString[1]++; return timeString[0]+':'+ timeString[1] +':'+ delay; } var timesGiven= prompt(`Start video at a time Time(hh, mm, ss), delay(ss) `, getNearestMinute() +', ').split(','); var time =  timesGiven[0].trim(); var delay = timesGiven[1].trim(); time = getNearestMinute(time, delay); function checktime(){ if(get24Time() >= time){ document.getElementsByTagName('video')[0].play(); return true; } setTimeout(checktime, 300); return false; } setTimeout(checktime, 300); } startYouTubeVideoAtAGivenTime();})()">
+                Start YouTube Video At A Given Time</a>
         </li>
         <li>
-            <a href="booksmarklets/embedVideoPlayer.js">Embed Video Player</a>
+            <a href="javascript:(function(){function embedVideoPlayer(){ if (window.location.host === 'www.youtube.com' && window.location.pathname === '/watch') { var urlParams = new URLSearchParams(window.location.search); var id = urlParams.get('v'); window.location.assign(`https://www.youtube.com/embed/${id}`); }else if(window.location.host === 'www.dailymotion.com'){ var values = window.location.pathname.split('/'); window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`); } } embedVideoPlayer();})()">Embed Video Player</a>
         </li>
         <li>
-            <a href="booksmarklets/imgFinder.js">Image Finder</a>
+            <a href="javascript:(function(){function imgFinder() { let ele = document.getElementsByClassName('imgFinderOn'); if (ele.length > 0) { ele[0].parentNode.removeChild(ele[0]); return; } let imgs = document.getElementsByTagName('img'); let div = document.createElement('div'); div.style = `z-index: 99999; background-color: grey; position: absolute; top: 0%; max-width: 100%;`; div.classList.add('imgFinderOn'); for (let img of imgs) { img.draggable = true; let newImg = document.createElement('img'); newImg.src = img.src; div.appendChild(newImg); } document.body.appendChild(div); } imgFinder();})()">
+                Image Finder</a>
         </li>
         <li>
             <a href="javascript:(function(){var selectedText = window.getSelection().toString(); selectedText = encodeURIComponent(selectedText);var win = window.open(`https://translate.google.com/#view=home&op=translate&sl=ja&tl=en&text=${selectedText}`)})()">
