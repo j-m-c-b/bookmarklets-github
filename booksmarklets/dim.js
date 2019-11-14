@@ -11,10 +11,10 @@ function dim(){
             let string = document.querySelectorAll('.costumeCarlDim')[0].innerHTML;        
             let matches = string.match(regex);        
             matches = parseFloat(matches);        
-            if(e.key ==='ñ' &&  matches < 95){            
+            if(e.key ==='5' &&  matches < 95){            
                 let bright = matches + 5;            
                 document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;       
-            } else if(e.key ==='l' && matches > 5){            
+            } else if(e.key ==='6' && matches > 5){            
                 let bright = matches - 5;            
                 document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;        
             }    
