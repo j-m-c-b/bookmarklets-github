@@ -25,7 +25,8 @@
                 Start YouTube Video At A Given Time</a>
         </li>
         <li>
-            <a href="javascript:(function(){function embedVideoPlayer(){ if (window.location.host === 'www.youtube.com' && window.location.pathname === '/watch') { var urlParams = new URLSearchParams(window.location.search); var id = urlParams.get('v'); window.location.assign(`https://www.youtube.com/embed/${id}`); }else if(window.location.host === 'www.dailymotion.com'){ var values = window.location.pathname.split('/'); window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`); } } embedVideoPlayer();})()">Embed Video Player</a>
+            <a href="javascript:(function(){if (window.location.pathname === '/watch') {    var urlParams = new URLSearchParams(window.location.search);    let id = urlParams.get('v'); let currentTime = Math.floor(document.querySelector('video').currentTime); window.location.assign(`https://www.youtube.com/embed/${id}?start=${currentTime}`);}else if(window.location.host === 'www.dailymotion.com'){ let values = window.location.pathname.split('/');window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`);}})()">
+                Embed Video Player</a>
         </li>
         <li>
             <a href="javascript:(function(){function imgFinder() { let ele = document.getElementsByClassName('imgFinderOn'); if (ele.length > 0) { ele[0].parentNode.removeChild(ele[0]); return; } let imgs = document.getElementsByTagName('img'); let div = document.createElement('div'); div.style = `z-index: 99999; background-color: grey; position: absolute; top: 0%; max-width: 100%;`; div.classList.add('imgFinderOn'); for (let img of imgs) { img.draggable = true; let newImg = document.createElement('img'); newImg.src = img.src; div.appendChild(newImg); } document.body.appendChild(div); } imgFinder();})()">
