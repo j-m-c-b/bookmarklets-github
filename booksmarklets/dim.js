@@ -14,7 +14,7 @@ function dim(){
             if(e.key ==='5' &&  matches < 95){            
                 let bright = matches + 5;            
                 document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;       
-            } else if(e.key ==='6' && matches > 5){            
+            } else if(e.key ==='4' && matches > 5){            
                 let bright = matches - 5;            
                 document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;        
             }    
