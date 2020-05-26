@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        textarea{
+            background-color: #145796;
+            color: white;
+            width: 100%;
+            height: 470px;
+        }
+        a, a:hover{
+            background-color: #139966;
+        }
+    </style>
+</head>
+<body>
+    <textarea  id="txtArea" cols="30" rows="10"></textarea> 
+    <br>
+    <br>
+    <a id="bMLink" href=""></a>
+    <br>
+    <br>
+    <button id="btnBM">Make BM</button>
+    <br>
+    <br>
+    <button id="btndeCode">decodeURI BM</button>
+    <script>
+    let bMLink = document.querySelector("#bMLink");
+    let txtArea = document.querySelector("#txtArea");
+    let btnBM = document.querySelector("#btnBM");
+    let btndeCode = document.querySelector("#btndeCode");
+
+
+    btnBM.addEventListener("click", ()=>{
+        let scriptV =  encodeURI(txtArea.value.replace(/"/g, '\''));
+        bMLink.href = `javascript:(function(){${scriptV}})()`;
+        bMLink.innerText = "New Bookmarlet";
+    });   
+    btndeCode.addEventListener("click", ()=>{
+        txtArea.value = decodeURI(txtArea.value)
+      
+    });
+
+    
+    
+    </script>
+</body>
+</html>
