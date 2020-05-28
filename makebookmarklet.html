@@ -8,14 +8,18 @@
     <title>Make a Bookmarklet</title>
     <style>
         textarea{
-            background-color: #145796;
             color: white;
             width: 100%;
             height: 470px;
         }
+        input, textarea{
+            background-color: #145796;
+        }
     </style>
 </head>
 <body>
+     <input id="inTitle" placeholder="Title" type="text" name="" id="">
+    <br><br>
     <textarea  id="txtArea" cols="30" rows="10"></textarea> 
     <br>
     <br>
@@ -26,22 +30,32 @@
     <br>
     <br>
     <button id="btndeCode">decodeURI BM</button>
+
+    
     <script>
-    let bMLink = document.querySelector("#bMLink");
-    let txtArea = document.querySelector("#txtArea");
-    let btnBM = document.querySelector("#btnBM");
-    let btndeCode = document.querySelector("#btndeCode");
+        let bMLink = document.querySelector("#bMLink");
+        let txtArea = document.querySelector("#txtArea");
+        let btnBM = document.querySelector("#btnBM");
+        let btndeCode = document.querySelector("#btndeCode");
+        let inTitle = document.querySelector("#inTitle");
 
+        inTitle.addEventListener("change", ()=>{
+            bMLink.innerText = inTitle.value;
+        })        
 
-    btnBM.addEventListener("click", ()=>{
-        let scriptV =  encodeURI(txtArea.value.replace(/"/g, '\''));
-        bMLink.href = `javascript:(function(){${scriptV}})()`;
-        bMLink.innerText = "New Bookmarlet";
-    });   
-    btndeCode.addEventListener("click", ()=>{
-        txtArea.value = decodeURI(txtArea.value)
-      
-    });
+        btnBM.addEventListener("click", ()=>{
+            let scriptV =  encodeURI(txtArea.value.replace(/"/g, '\''));
+            bMLink.href = `javascript:(function(){${scriptV}})()`;
+            
+            if(bMLink.innerText === ""){
+                bMLink.innerText = "New Bookmarlet " + Math.random().toFixed(2);
+            }
+            
+        });   
+        btndeCode.addEventListener("click", ()=>{
+            txtArea.value = decodeURI(txtArea.value)
+        
+        });
 
     
     
