@@ -72,6 +72,10 @@
                 name:"FlipImages",
                 string: "javascript:(function(){function%20flip()%7B%0A%20%20%20%20style%20=%20document.createElement('style')%0A%20%20%20%20style.innerHTML%20=%20'img%7Btransform:%20scaleX(-1);%7D'%0A%20%20%20%20document.body.appendChild(style)%0A%7D%0Aflip();})()"
             },
+            {
+                name: "OpenVideoSrc",
+                string: "javascript:(function(){function%20showVideos()%7B%0A%20%20%20%20var%20videos%20=%20document.getElementsByTagName('video');%0A%20%20%20%20for(let%20video%20of%20videos)%7B%0A%20%20%20%20%20%20%20%20window.open(video.src,%20'_black');%0A%20%20%20%20%7D%0A%7D%0AshowVideos();%0A})()"
+            }
         ]
 
 
