@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Bookmarklets</title>
 </head>
+
 <body>
     <h3>
         <a href="makebookmarklet.html">Make a Bookmarklet</a>
@@ -14,63 +16,71 @@
 
     <h3>List of bookmarklets</h3>
     <ul id="domList">
-        <li>
-            <a href="javascript:(function(){function hideAndShowPlayer(){var t=['ytp-title-link yt-uix-sessionlink','ytp-title-channel-logo','ytp-watch-later-button ytp-button','ytp-button ytp-share-button','ytp-chrome-controls','ytp-play-progress ytp-swatch-background-color','ytp-pause-overlay ytp-scroll-min','ytp-progress-bar','ytp-chrome-bottom','ytp-chrome-top ytp-chrome-bottom'];if('hidden'===document.getElementsByClassName(t[0])[0].style.visibility){var e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='')}else{e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='hidden')}}hideAndShowPlayer();})()">
-                Hide and Show Youtube Player</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){function increaseVolume(){ var videoEle = document.getElementsByTagName('video')[0]; var audioCtx = new AudioContext(); var audioSource = audioCtx.createMediaElementSource(videoEle); var gainNode = audioCtx.createGain(); gainNode.gain.value = parseFloat(prompt('Audio Level', '2.5'));  audioSource.connect(gainNode); gainNode.connect(audioCtx.destination); } increaseVolume();})()">
-                Increase Volume</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){function startYouTubeVideoAtAGivenTime(){ function get24Time(){ var d = new Date(); var curr_hour = d.getHours(); var curr_min = d.getMinutes(); var curr_sec = d.getSeconds(); return curr_hour+ ':'+ curr_min+':'+ curr_sec; } function getNearestMinute(timeString, delay){ delay = delay === undefined ? 0 : delay; timeString = get24Time().split(':'); timeString[1]++; return timeString[0]+':'+ timeString[1] +':'+ delay; } var timesGiven= prompt(`Start video at a time Time(hh, mm, ss), delay(ss) `, getNearestMinute() +', ').split(','); var time =  timesGiven[0].trim(); var delay = timesGiven[1].trim(); time = getNearestMinute(time, delay); function checktime(){ if(get24Time() >= time){ document.getElementsByTagName('video')[0].play(); return true; } setTimeout(checktime, 300); return false; } setTimeout(checktime, 300); } startYouTubeVideoAtAGivenTime();})()">
-                Start YouTube Video At A Given Time</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){if (window.location.pathname === '/watch') {    var urlParams = new URLSearchParams(window.location.search);    let id = urlParams.get('v'); let currentTime = Math.floor(document.querySelector('video').currentTime); window.location.assign(`https://www.youtube.com/embed/${id}?start=${currentTime}`);}else if(window.location.host === 'www.dailymotion.com'){ let values = window.location.pathname.split('/');window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`);}})()">
-                Embed Video Player</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){function imgFinder() { let ele = document.getElementsByClassName('imgFinderOn'); if (ele.length > 0) { ele[0].parentNode.removeChild(ele[0]); return; } let imgs = document.getElementsByTagName('img'); let div = document.createElement('div'); div.style = `z-index: 99999; background-color: grey; position: absolute; top: 0%; max-width: 100%;`; div.classList.add('imgFinderOn'); for (let img of imgs) { img.draggable = true; let newImg = document.createElement('img'); newImg.src = img.src; div.appendChild(newImg); } document.body.appendChild(div); } imgFinder();})()">
-                Image Finder</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){var selectedText = window.getSelection().toString(); selectedText = encodeURIComponent(selectedText);var win = window.open(`https://translate.google.com/#view=home&op=translate&sl=ja&tl=en&text=${selectedText}`)})()">
-                Translate Text</a>
-        </li>
-        <li>
-            <a href="javascript:(function(){function cleanInsta(){    var block1 = document.getElementsByClassName('pbNvD QZZGH  FrS-d');     block1[0].parentElement.removeChild(block1[0]);     var block2 = document.getElementsByClassName('RnEpo Yx5HN');     block2[0].parentElement.removeChild(block2[0]);     document.body.style.overflow = 'auto';}cleanInsta();})()">
-                Clean Insta </a>
-        </li>
-        <li>
-            <a href="javascript:(function(){if(document.querySelectorAll('.costumeCarlDim').length === 0){ let eStyle = document.createElement('style'); let bright = 80; eStyle.innerHTML = `html{ filter: brightness(${bright}%);}`; eStyle.className = 'costumeCarlDim'; document.body.appendChild(eStyle); document.body.addEventListener('keypress', (e)=>{ let regex = /\d+/g; let string = document.querySelectorAll('.costumeCarlDim')[0].innerHTML; let matches = string.match(regex); matches = parseFloat(matches); if(e.key ==='5' &&  matches < 95){  let bright = matches + 6; document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;  } else if(e.key ==='4' && matches > 5){  let bright = matches - 5; document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{ filter: brightness(${bright}%);}`; }  });}})()">
-                Dim 4- 5+ </a>   
-        </li>
+
+
+
+ 
+
+ 
+     
     </ul>
 
     <script>
+        /*
+
+            {
+                name: "",
+                string: ""
+            },
+
+        */
         let bookMArray = [
+            {
+                name: "Embed Video Player",
+                string: "avascript:(function(){if (window.location.pathname === '/watch') {    var urlParams = new URLSearchParams(window.location.search);    let id = urlParams.get('v'); let currentTime = Math.floor(document.querySelector('video').currentTime); window.location.assign(`https://www.youtube.com/embed/${id}?start=${currentTime}`);}else if(window.location.host === 'www.dailymotion.com'){ let values = window.location.pathname.split('/');window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`);}})()"
+            },
+            {
+                name: "Image Finder",
+                string: "javascript:(function(){function imgFinder() { let ele = document.getElementsByClassName('imgFinderOn'); if (ele.length > 0) { ele[0].parentNode.removeChild(ele[0]); return; } let imgs = document.getElementsByTagName('img'); let div = document.createElement('div'); div.style = `z-index: 99999; background-color: grey; position: absolute; top: 0%; max-width: 100%;`; div.classList.add('imgFinderOn'); for (let img of imgs) { img.draggable = true; let newImg = document.createElement('img'); newImg.src = img.src; div.appendChild(newImg); } document.body.appendChild(div); } imgFinder();})()"
+            },
+            {
+                name: "javascript:(function(){var selectedText = window.getSelection().toString(); selectedText = encodeURIComponent(selectedText);var win = window.open(`https://translate.google.com/#view=home&op=translate&sl=ja&tl=en&text=${selectedText}`)})()",
+                string: "Translate Text"
+            },
+            {
+                name: "Dim 4- 5+",
+                string: "javascript:(function(){if(document.querySelectorAll('.costumeCarlDim').length === 0){ let eStyle = document.createElement('style'); let bright = 80; eStyle.innerHTML = `html{ filter: brightness(${bright}%);}`; eStyle.className = 'costumeCarlDim'; document.body.appendChild(eStyle); document.body.addEventListener('keypress', (e)=>{ let regex = /\d+/g; let string = document.querySelectorAll('.costumeCarlDim')[0].innerHTML; let matches = string.match(regex); matches = parseFloat(matches); if(e.key ==='5' &&  matches < 95){  let bright = matches + 6; document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{    filter: brightness(${bright}%);}`;  } else if(e.key ==='4' && matches > 5){  let bright = matches - 5; document.querySelectorAll('.costumeCarlDim')[0].innerHTML = `html{ filter: brightness(${bright}%);}`; }  });}})()"
+            },
             {
                 string: "javascript:(function(){function hideAndShowPlayer(){var t=['ytp-title-link yt-uix-sessionlink','ytp-title-channel-logo','ytp-watch-later-button ytp-button','ytp-button ytp-share-button','ytp-chrome-controls','ytp-play-progress ytp-swatch-background-color','ytp-pause-overlay ytp-scroll-min','ytp-progress-bar','ytp-chrome-bottom','ytp-chrome-top ytp-chrome-bottom'];if('hidden'===document.getElementsByClassName(t[0])[0].style.visibility){var e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='')}else{e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='hidden')}}hideAndShowPlayer();})()",
                 name: "Hide and Show Youtube Player"
-            }
+            },
+            {
+                string: "javascript:(function(){function increaseVolume(){ var videoEle = document.getElementsByTagName('video')[0]; var audioCtx = new AudioContext(); var audioSource = audioCtx.createMediaElementSource(videoEle); var gainNode = audioCtx.createGain(); gainNode.gain.value = parseFloat(prompt('Audio Level', '2.5'));  audioSource.connect(gainNode); gainNode.connect(audioCtx.destination); } increaseVolume();})()",
+                name: "Increase Volume",
+            },
+            {
+                name: "javascript:(function(){function startYouTubeVideoAtAGivenTime(){ function get24Time(){ var d = new Date(); var curr_hour = d.getHours(); var curr_min = d.getMinutes(); var curr_sec = d.getSeconds(); return curr_hour+ ':'+ curr_min+':'+ curr_sec; } function getNearestMinute(timeString, delay){ delay = delay === undefined ? 0 : delay; timeString = get24Time().split(':'); timeString[1]++; return timeString[0]+':'+ timeString[1] +':'+ delay; } var timesGiven= prompt(`Start video at a time Time(hh, mm, ss), delay(ss) `, getNearestMinute() +', ').split(','); var time =  timesGiven[0].trim(); var delay = timesGiven[1].trim(); time = getNearestMinute(time, delay); function checktime(){ if(get24Time() >= time){ document.getElementsByTagName('video')[0].play(); return true; } setTimeout(checktime, 300); return false; } setTimeout(checktime, 300); } startYouTubeVideoAtAGivenTime();})()",
+                string: " Start YouTube Video At A Given Time"
+            },
         ]
 
 
 
-    for(let bookM of bookMArray){
-        let li = document.createElement("li");
+        for (let bookM of bookMArray) {
+            let li = document.createElement("li");
 
-        let a = document.createElement("a");
-        a.href = bookM.string;
-        a.innerText = bookM.name;
+            let a = document.createElement("a");
+            a.href = bookM.string;
+            a.innerText = bookM.name;
 
-        li.appendChild(a);
+            li.appendChild(a);
 
-        document.querySelector("#domList").appendChild(li);
-    }
+            document.querySelector("#domList").appendChild(li);
+        }
     </script>
 
 
 </body>
+
 </html>
