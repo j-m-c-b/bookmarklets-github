@@ -48,6 +48,23 @@
         </li>
     </ul>
 
+    <script>
+        let bookMArray = [
+            {
+                string: "javascript:(function(){function hideAndShowPlayer(){var t=['ytp-title-link yt-uix-sessionlink','ytp-title-channel-logo','ytp-watch-later-button ytp-button','ytp-button ytp-share-button','ytp-chrome-controls','ytp-play-progress ytp-swatch-background-color','ytp-pause-overlay ytp-scroll-min','ytp-progress-bar','ytp-chrome-bottom','ytp-chrome-top ytp-chrome-bottom'];if('hidden'===document.getElementsByClassName(t[0])[0].style.visibility){var e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='')}else{e=[];for(let o of t){let t=document.getElementsByClassName(o)[0];t&&e.push(t)}for(let t of e)t.style&&(t.style.visibility='hidden')}}hideAndShowPlayer();})()",
+                name: "Hide and Show Youtube Player"
+            }
+        ]
+
+
+
+    for(let bookM of bookMArray){
+        let a = document.createElement("a");
+        a.href = bookM.string;
+        a.innerText = bookM.name;
+    }
+    </script>
+
 
 </body>
 </html>
