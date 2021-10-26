@@ -67,7 +67,11 @@
             {
                 string:"javascript:(function(){javascript:(function()%7B%0Afunction%20downloadURI(uri,%20name)%20%7B%0A%20%20%20%20var%20link%20=%20document.createElement('a');%0A%20%20%20%20link.download%20=%20name;%0A%20%20%20%20link.href%20=%20uri;%0A%20%20%20%20document.body.appendChild(link);%0A%20%20%20%20link.click();%0A%20%20%20%20document.body.removeChild(link);%0A%20%20%20%20delete%20link;%0A%7D%0Afunction%20capture()%20%7B%0A%20%20%20%20window.canvas%20=%20document.createElement('canvas');%0A%20%20%20%20document.body.appendChild(canvas);%0A%20%20%20%20var%20video%20=%20document.getElementsByClassName('video-stream%20html5-main-video')%5B0%5D;%0A%20%20%20%20canvas.width%20=%20video.videoWidth;%0A%20%20%20%20canvas.height%20=%20video.videoHeight;%0A%20%20%20%20canvas.getContext('2d').drawImage(video,%200,%200,%20video.videoWidth,%20video.videoHeight);%0Aconst%20d%20=%20new%20Date();%0A%20%20%20%20downloadURI(canvas.toDataURL('image/jpeg'),%20%20%20d.getTime()%20+%20'.jpg')%0A%7D%0Acapture();%7D)()})()",
                 name: "ScreenYT",
-            }
+            },
+            {
+                name:"FlipImages",
+                string: "javascript:(function(){function%20flip()%7B%0A%20%20%20%20style%20=%20document.createElement('style')%0A%20%20%20%20style.innerHTML%20=%20'img%7Btransform:%20scaleX(-1);%7D'%0A%20%20%20%20document.body.appendChild(style)%0A%7D%0Aflip();})()"
+            },
         ]
 
 
