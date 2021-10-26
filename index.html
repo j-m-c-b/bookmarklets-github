@@ -64,6 +64,10 @@
                 name: "Start YouTube Video At A Given Time",
                 string: "javascript:(function(){function startYouTubeVideoAtAGivenTime(){ function get24Time(){ var d = new Date(); var curr_hour = d.getHours(); var curr_min = d.getMinutes(); var curr_sec = d.getSeconds(); return curr_hour+ ':'+ curr_min+':'+ curr_sec; } function getNearestMinute(timeString, delay){ delay = delay === undefined ? 0 : delay; timeString = get24Time().split(':'); timeString[1]++; return timeString[0]+':'+ timeString[1] +':'+ delay; } var timesGiven= prompt(`Start video at a time Time(hh, mm, ss), delay(ss) `, getNearestMinute() +', ').split(','); var time =  timesGiven[0].trim(); var delay = timesGiven[1].trim(); time = getNearestMinute(time, delay); function checktime(){ if(get24Time() >= time){ document.getElementsByTagName('video')[0].play(); return true; } setTimeout(checktime, 300); return false; } setTimeout(checktime, 300); } startYouTubeVideoAtAGivenTime();})()"
             },
+            {
+                string:"javascript:(function(){javascript:(function()%7B%0Afunction%20downloadURI(uri,%20name)%20%7B%0A%20%20%20%20var%20link%20=%20document.createElement('a');%0A%20%20%20%20link.download%20=%20name;%0A%20%20%20%20link.href%20=%20uri;%0A%20%20%20%20document.body.appendChild(link);%0A%20%20%20%20link.click();%0A%20%20%20%20document.body.removeChild(link);%0A%20%20%20%20delete%20link;%0A%7D%0Afunction%20capture()%20%7B%0A%20%20%20%20window.canvas%20=%20document.createElement('canvas');%0A%20%20%20%20document.body.appendChild(canvas);%0A%20%20%20%20var%20video%20=%20document.getElementsByClassName('video-stream%20html5-main-video')%5B0%5D;%0A%20%20%20%20canvas.width%20=%20video.videoWidth;%0A%20%20%20%20canvas.height%20=%20video.videoHeight;%0A%20%20%20%20canvas.getContext('2d').drawImage(video,%200,%200,%20video.videoWidth,%20video.videoHeight);%0Aconst%20d%20=%20new%20Date();%0A%20%20%20%20downloadURI(canvas.toDataURL('image/jpeg'),%20%20%20d.getTime()%20+%20'.jpg')%0A%7D%0Acapture();%7D)()})()",
+                name: "ScreenYT",
+            }
         ]
 
 
