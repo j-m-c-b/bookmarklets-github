@@ -37,7 +37,7 @@
         let bookMArray = [
             {
                 name: "Embed Video Player",
-                string: "avascript:(function(){if (window.location.pathname === '/watch') {    var urlParams = new URLSearchParams(window.location.search);    let id = urlParams.get('v'); let currentTime = Math.floor(document.querySelector('video').currentTime); window.location.assign(`https://www.youtube.com/embed/${id}?start=${currentTime}`);}else if(window.location.host === 'www.dailymotion.com'){ let values = window.location.pathname.split('/');window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`);}})()"
+                string: "javascript:(function(){if (window.location.pathname === '/watch') {    var urlParams = new URLSearchParams(window.location.search);    let id = urlParams.get('v'); let currentTime = Math.floor(document.querySelector('video').currentTime); window.location.assign(`https://www.youtube.com/embed/${id}?start=${currentTime}`);}else if(window.location.host === 'www.dailymotion.com'){ let values = window.location.pathname.split('/');window.location.assign(`https://www.dailymotion.com/embed/video/${values[values.length-1]}`);}})()"
             },
             {
                 name: "Image Finder",
