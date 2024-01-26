@@ -30,7 +30,7 @@
     <br>
     <br>
     <button id="btndeCode">decodeURI BM</button>
-
+    <button id="btndeEncode">Encode BM</button>
     
     <script>
         let bMLink = document.querySelector("#bMLink");
@@ -56,7 +56,9 @@
             txtArea.value = decodeURI(txtArea.value)
         
         });
-
+        btndeEncoode.addEventListener("click", ()=>{
+            txtArea.value = encodeURI(txtArea.value.replace(/"/g, '\''));
+        });
     
     
     </script>
