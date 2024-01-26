@@ -37,6 +37,7 @@
         let txtArea = document.querySelector("#txtArea");
         let btnBM = document.querySelector("#btnBM");
         let btndeCode = document.querySelector("#btndeCode");
+        let btndeEncode = document.querySelector("#btndeEncode");
         let inTitle = document.querySelector("#inTitle");
 
         inTitle.addEventListener("change", ()=>{
@@ -56,7 +57,7 @@
             txtArea.value = decodeURI(txtArea.value)
         
         });
-        btndeEncoode.addEventListener("click", ()=>{
+        btndeEncode.addEventListener("click", ()=>{
             txtArea.value = encodeURI(txtArea.value.replace(/"/g, '\''));
         });
     
