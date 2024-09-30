@@ -41,6 +41,7 @@
         let inTitle = document.querySelector("#inTitle");
         txtArea.value = "";
         inTitle.value = "";
+        txtArea.focus();
         inTitle.addEventListener("change", ()=>{
             bMLink.innerText = inTitle.value;
         })        
