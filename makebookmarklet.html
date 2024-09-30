@@ -8,12 +8,12 @@
     <title>Make a Bookmarklet</title>
     <style>
         textarea{
-            color: white;
             width: 100%;
             height: 470px;
         }
         input, textarea{
             background-color: #145796;
+            color: white;
         }
     </style>
 </head>
@@ -39,7 +39,7 @@
         let btndeCode = document.querySelector("#btndeCode");
         let btndeEncode = document.querySelector("#btndeEncode");
         let inTitle = document.querySelector("#inTitle");
-
+        txtArea.value = "";
         inTitle.addEventListener("change", ()=>{
             bMLink.innerText = inTitle.value;
         })        
